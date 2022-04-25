@@ -2,6 +2,12 @@ class BowlingGame:
     def __init__(self):
         self.rolls = []
 
+    def __init__(self):
+        self.score = 0
+
+    def __init__(self):
+        self.BowlingGame = 1
+
     def roll(self, pins):
         self.rolls.append(pins)
 

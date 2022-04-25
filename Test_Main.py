@@ -1,11 +1,11 @@
 import unittest
-import BowlingGame
+from BowlingGame import BowlingGame
 
 
 class TestBowlingGame(unittest.TestCase):
 
     def setUp(self):
-        self.game = BowlingGame.BowlingGame()
+        self.game = BowlingGame.BowlingGame(1)
 
     def testGutterGame(self):
         for i in range(0, 20):
@@ -13,6 +13,7 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 0
 
     def testAllOnes(self):
+        game = BowlingGame()
         self.rollMany(1, 20)
         assert self.game.score() == 20
 
