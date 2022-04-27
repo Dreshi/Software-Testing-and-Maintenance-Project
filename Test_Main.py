@@ -8,14 +8,15 @@ class TestBowlingGame(unittest.TestCase):
         self.game = BowlingGame()
 
     def testGutterGame(self):
-        self.rollMany(0, 20)
+        self.rollMany(0, 20)  # it was important to use the rollMany() here
         assert self.game.score() == 0
 
     def testAllOnes(self):
         self.rollMany(1, 20)
         assert self.game.score() == 20
 
-    def testOneSpare(self):
+    def testOneSpare(self):  # method name was used twise
+        # in order to not get the IndexError: list index out of range error, it was important to delete the s from rolls()
         self.game.roll(5)
         self.game.roll(5)
         self.game.roll(3)
@@ -23,6 +24,7 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 16
 
     def testOneStrike(self):
+        # in order to not get the IndexError: list index out of range error, it was important to delete the s from rolls()
         self.game.roll(10)
         self.game.roll(4)
         self.game.roll(3)
@@ -33,7 +35,7 @@ class TestBowlingGame(unittest.TestCase):
         self.rollMany(10, 12)
         assert self.game.score() == 300
 
-    def testAllSpare(self):
+    def testAllSpare(self):  # naming had to be changed - the method name testOneSpare(self) was used 2x, plus this one was actually checking for all spares
         self.rollMany(5, 21)
         assert self.game.score() == 150
 
